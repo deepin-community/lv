@@ -1,0 +1,309 @@
+lv (4.51-8) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Drop no longer supported add-log-mailing-address setting from
+    debian/changelog.
+  * Use secure URI in debian/watch.
+  * Add missing colon in closes line.
+
+  [ HIGUCHI Daisuke (VDR dai) ]
+  * d/p/change-maximum-height-to-144.patch: new patch.
+    Thanks to TOMITA Masahiro <tommy@tmtm.org>.
+  * d/p/*.diff: new patches, thanks to B. Watson <yahlcru@gmail.com>.
+  * d/p/shows-the-filename-only.diff: new patch.
+    shows the file name only if it is shorter than the width of the screen.
+    (Closes: #406475). thanks to Oohara Yuuma <oohara@libra.interq.or.jp>.
+  * refresh patches.
+  * d/{docs,rules}: convert *.html to UTF-8 encoding.
+    Suggested by B Watson <yalhcru@gmail.com>, thanks.
+  * d/{control,compat}: eliminate lintian warning: uses-debhelper-compat-file.
+  * d/control: set Rules-Requires-Root as no.
+  * Bump Standards-Version to 4.5.0.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sun, 15 Nov 2020 19:37:47 +0900
+
+lv (4.51-7) unstable; urgency=medium
+
+  * eliminate lintian warning: unused-override
+  * Bump debhelper compatibility level to 12
+  * Update Standards-Version to 4.4.0
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sat, 03 Aug 2019 12:39:51 +0900
+
+lv (4.51-6) unstable; urgency=medium
+
+  * support zstd automatic decompression (Closes: #930478)
+    thanks to YAMADA Tsuyoshi <tyamada@minimum2scp.org>.
+    - d/control: add zstd to Recommends for zstdcat.
+    - d/p/support-zstd-automatic-decompression.patch: new patch.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Fri, 14 Jun 2019 18:54:50 +0900
+
+lv (4.51-5) unstable; urgency=medium
+
+  * eliminate lintian warning: file-contains-trailing-whitespace
+  * eliminate lintian warning: insecure-copyright-format-uri
+  * override lintian warning: spelling-error-in-patch-description
+  * remove autoreconf stuffs dut to dh level 11
+  * Use salsa.debian.org in Vcs-* fields
+  * Bump debhelper compatibility level to 11
+  * Bump Standards-Version to 4.1.3 (no changes needed)
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 27 Mar 2018 21:57:34 +0900
+
+lv (4.51-4) unstable; urgency=medium
+
+  * fix FTCBFS: configures for the build architecture (Closes: #866717)
+    thanks to Helmut Grohne <helmut@subdivi.de>.
+    - debian/rules: Let dh_auto_configure pass --host to ./configure
+    - For that to work, use a different builddirectory than .
+  * bump up Standards-Version 4.0.0
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Fri, 07 Jul 2017 23:13:08 +0900
+
+lv (4.51-3) unstable; urgency=medium
+
+  * New maintainer (Closes: #839674)
+    thanks to GOTO Masanori <gotom@debian.org> for previous works.
+  * debian/rules: enable hardening all
+  * debian/control: eliminate lintian warning: vcs-field-uses-insecure-uri
+  * debian/copyright: eliminate lintian warning:
+    dep5-copyright-license-name-not-unique
+  * disable Homepage and d/watch caused by web service termination
+    - debian/control
+    - debian/watch
+  * debian/postinst: adjust priority lower than less to not break systemctl
+    behavior, suggested by Hideki Yamane <henrich@debian.org> and
+    Osamu Aoki <osamu@debian.org>. see: #837218
+  * debian/README.Debian: describe "-c" option for allowing ANSI escape
+    sequences for text decoration. see: #837218
+  * bump up Standards-Version 3.9.8
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 04 Oct 2016 19:55:14 +0900
+
+lv (4.51-2.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * replace sigvec usage (Closes: #769546).
+    - debian/patches/sigvec.patch: new file. thanks to Florian Weimer
+      <fweimer@redhat.com>.
+    - debian/rules: enable autoreconf add-on.
+    - debian/autoreconf: set subdir.
+    - debian/control: Depends: dh-autoreconf.
+  * bump up Standards-Version 3.9.6
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Mon, 27 Apr 2015 21:43:39 +0900
+
+lv (4.51-2.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * debian/control, debian/rules, debian/compat: use dh9.
+  * debian/control
+    - add Vcs-* tags.
+    - add Homepage: tag.
+    - add ${misc:Depends} to Depends:.
+    - add xz-utils to Recommends:.
+  * debian/source/format: set 3.0 (quilt).
+  * debian/patches/*: rename from debian/patch* and add DEP-3 headers.
+  * debian/copyright: convert to DEP-5.
+  * debian/patches/fix-hyphen-used-as-minus-sign.diff: new file.
+  * debian/lv.doc-base: new file.
+  * bump up Standards-Version 3.9.5
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Sat, 15 Mar 2014 03:42:28 +0900
+
+lv (4.51-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add 1 patch:
+    - debian/@patch.lv.660358.diff: support automatic xz and lzma
+      decompression. thanks to "A. N. Other" <a.n.other.debian@gmail.com>.
+      (Closes: #660358)
+  * debian/watch: Add. thanks to Bart Martens <bartm@debian.org>.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Thu, 03 Oct 2013 21:42:15 +0900
+
+lv (4.51-2) unstable; urgency=low
+
+  * Add 3 (+1) patches:
+    - debian/@patch.lv.20050502_~+num-pat-option: Add +num and +/pattern
+      option.
+    - debian/@patch.lv.20050506_%src%file.c_~enable-fastio-use-fread: Improve
+      large file processing performance over typically +40% to +300%.
+    - debian/patch.lv.misc: Enable above changes.
+    - debian/@patch.lv.20051030_%src%_~use_off_t: Update copyright year to
+      2005.  Support large file.  (Closes: #173060)
+    - debian/rules: Likewise.
+
+ -- GOTO Masanori <gotom@debian.org>  Fri,  6 May 2005 15:05:17 +0900
+
+lv (4.51-1) unstable; urgency=low
+
+  * New upstream release.  (Closes: #291528)
+  * Change maintainer address.
+
+ -- GOTO Masanori <gotom@debian.org>  Mon,  2 May 2005 17:43:31 +0900
+
+lv (4.50-1) unstable; urgency=low
+
+  * New upstream release.  (Closes: #220716)
+  * Lgrep segv problem is fixed when lgrep greps through many files
+    (Closes: #188288)
+  * Wrong ISO-2022 final byte is fixed.  (Closes: #207718)
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Sun, 16 Nov 2003 01:21:59 +0900
+
+lv (4.49.5-2) unstable; urgency=high
+
+  * rebuild 4.49.5-1 under libc6 2.3.1-17.  4.49.5-1 was built under
+    unexisted libc6 version.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Wed, 14 May 2003 22:15:46 +0900
+
+lv (4.49.5-1) unstable; urgency=high
+
+  * lv has possible local root exploit problem.  lv always reads .lv file
+    in the current directory.  So if ill-intentioned user could put an .lv
+    with the line '-E/path/to/malicious/program', any user who uses the v
+    (edit) command in that directory will unwittingly execute the malicious
+    program; this could be exploited to run an arbitrary script with root
+    permissions.  This version fixes the problem.  Bug found by
+    Leonard Stiles <ljs@uk2.net>.  (#190941).
+  * lv does not check environment variable EDITOR or VISUAL, it does not
+    follow debian policy 12.4.  This version fixes this problem.
+    Patched by Michael Weber <michaelw@debian.org>.  (Closes: #181402)
+  * Fix 'unaligned access to' message from kernel due to unaligned
+    access on 64 bit architecture machine.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Mon, 12 May 2003 17:20:38 +0900
+
+lv (4.49.4-8) unstable; urgency=low
+
+  * Fix 'problem when stdin isn't tty and there are file options'.
+    Patched by Fumitoshi UKAI <ukai@debian.or.jp>. Closes: #127861
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Mon,  7 Oct 2002 10:40:23 +0900
+
+lv (4.49.4-7) unstable; urgency=low
+
+  * debian/control: fix typo in description field.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Wed, 21 Nov 2001 09:24:26 +0900
+
+lv (4.49.4-6) unstable; urgency=low
+
+  * lv.1: fix .SH NAME format. when you used apropos and man -k, the
+    error was displayed (closes: #119125).
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Mon, 12 Nov 2001 00:55:42 +0900
+
+lv (4.49.4-5) unstable; urgency=low
+
+  * append debian/postinst, debian/prerm script (I forgot!). these scripts
+    register pager alternatives.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Wed,  7 Nov 2001 16:41:09 +0900
+
+lv (4.49.4-4) unstable; urgency=low
+
+  * debian/control: add build-dependency libncurses5-dev (closes: #118437).
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Tue,  6 Nov 2001 23:23:50 +0900
+
+lv (4.49.4-3) unstable; urgency=low
+
+  * applied the patch which forces displaying text whether @TERM is
+    valid or not (X-ML-Name: debian-users @debian.or.jp, X-Mail-Count: 30379).
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Tue,  6 Nov 2001 01:09:03 +0900
+
+lv (4.49.4-2) unstable; urgency=low
+
+  * Update Standards-Version: 3.5.2.
+  * I believe Bugs#102893 is resolved in this release
+    (I guess that SPARC64 build environment have some unmatch of lv
+    and its dependency library) (Closes: #102893).
+  * Experimental patch version 4.49.4.1.
+    This patch supports ISO-8859-10,13,14,15, Copyright update.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Mon,  5 Nov 2001 23:08:19 +0900
+
+lv (4.49.4-1) unstable; urgency=low
+
+  * New Upstream Version.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Wed, 27 Sep 2000 03:03:46 +0900
+
+lv (4.49.3-5) frozen unstable; urgency=low
+
+  * src/command.c: Deleted comments of line 187 and added key bind of
+    'DEL'. Reported by John Belmonte <john@nanaon-sha.co.jp>,
+    patched by Tomohiro KUBOTA <kubota@debian.or.jp>. (closes: #66054)
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Thu, 22 Jun 2000 23:06:34 +0900
+
+lv (4.49.3-4) frozen unstable; urgency=low
+
+  * Changelog from lv 4.49.3-2 and 4.49.3-3, both of which were never
+    officially released.
+    - debian/control: Added entry: `Recommends: bzip2'.
+    - debian/postinst: Fixed alternatives: Now symlink path changed to
+      /usr/share/man/man1 instead of /usr/man/man1 (closes: #54948).
+    - Updated to Standards-Version 3.0.1.
+    - debian/changelog: Added distribution: frozen.
+
+ -- Keita Maehara <maehara@debian.org>  Sun, 13 Feb 2000 17:49:09 +0900
+
+lv (4.49.3-3) frozen unstable; urgency=low
+
+  * Updated Standards-Version: 3.0.1 .
+  * debian/changelog: added frozen dist.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Thu, 10 Feb 2000 17:32:25 +0900
+
+lv (4.49.3-2) unstable; urgency=low
+
+  * debian/control: Added the entry, 'Recommends: bzip2'.
+  * debian/postinst: Fixed update-alternatives, the link changed
+    /usr/share/man/man1 instead of /usr/man/man1. (closes: #54948)
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Wed,  2 Feb 2000 18:26:25 +0900
+
+lv (4.49.3-1) unstable; urgency=low
+
+  * New upstream version.
+  * Fix install directory according to the FHS.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Thu,  4 Nov 1999 18:57:56 +0900
+
+lv (4.49.2-2) unstable; urgency=low
+
+  * Corresponding to pager alternatives. (closes: #45613)
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Wed, 13 Oct 1999 18:59:43 +0900
+
+lv (4.49.2-1) unstable; urgency=low
+
+  * New upstream version.
+  * lv can deal with max files from 32 to unlimited.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Sun, 19 Sep 1999 17:53:44 +0900
+
+lv (4.49-1) unstable; urgency=low
+
+  * New upstream version.
+  * Fixed BUG#38790.
+
+ -- GOTO Masanori <gotom@debian.or.jp>  Sun, 29 Aug 1999 17:51:13 +0900
+
+lv (4.42-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- GOTO Masanori <gotom@cs.titech.ac.jp>  Mon, 17 May 1999 18:21:02 +0900
+
+lv (4.40-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- GOTO Masanori <gotom@cs.titech.ac.jp>  Thu,  6 May 1999 17:04:46 +0900

@@ -1,0 +1,25 @@
+Source: lv
+Section: text
+Priority: optional
+Maintainer: HIGUCHI Daisuke (VDR dai) <dai@debian.org>
+Build-Depends: debhelper-compat (= 12), libncurses5-dev
+Standards-Version: 4.5.0
+#Homepage: http://www.ff.iij4u.or.jp/~nrt/lv/
+Vcs-Git: https://salsa.debian.org/debian/lv.git
+Vcs-Browser: https://salsa.debian.org/debian/lv
+Rules-Requires-Root: no
+
+Package: lv
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: bzip2, xz-utils, zstd
+Description: Powerful Multilingual File Viewer
+ lv is a powerful file viewer like less.
+ lv can decode and encode multilingual streams through
+ many coding systems:
+ ISO-8859, ISO-2022, EUC, SJIS, Big5, HZ, Unicode.
+ .
+ It recognizes multi-bytes patterns as regular
+ expressions, lv also provides multilingual grep.
+ In addition, lv can recognize ANSI escape sequences
+ for text decoration.

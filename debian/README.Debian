@@ -1,0 +1,15 @@
+lv for Debian
+-------------
+
+* lv does not allow ANSI escape sequences for text decoration by default.
+  If you want lv to allow it, pass "-c" to options or environment valuable "LV".
+
+  For example:
+
+  - ls -laF --color=yes | lv -c
+  - LV=-c systemctl status acpid.service
+
+  Or, you can set "LV=-c" to /etc/profile.d/somefile and bash can read such
+  settings.
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 04 Oct 2016 19:55:14 +0900
